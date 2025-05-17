@@ -1,14 +1,16 @@
 class Minesweeper extends HTMLElement {
     constructor() {
         super();
+        this.wrapper = document.createElement('div');
+        this.wrapper.classList.add('minesweeper');
+        this.appendChild(this.wrapper);
+
         const link = document.createElement('link');
         if (!document.querySelector('link[href="minesweeper.css"]')) {
             link.rel = 'stylesheet';
             link.href = 'minesweeper.css';
             document.head.appendChild(link);
         }
-
-        this.classList.add('minesweeper');
 
         this.minSize = parseInt(this.getAttribute('min-size'));
         this.maxSize = parseInt(this.getAttribute('max-size'));
@@ -23,7 +25,7 @@ class Minesweeper extends HTMLElement {
         this.minesPosition = [];
         this.tilesClicked = 0;
         this.gameOver = false;
-        this.innerHTML = '';
+        this.wrapper.innerHTML = '';
         this.createControlPanel();
     }
 
@@ -69,15 +71,14 @@ class Minesweeper extends HTMLElement {
         controlPanel.appendChild(boardSizeLabel);
         controlPanel.appendChild(minesCountLabel);
         controlPanel.appendChild(startButton);
-
-        this.appendChild(controlPanel);
+        this.wrapper.appendChild(controlPanel);
     }
 
     createGameBoard() {
         const field = document.createElement('div');
         field.classList.add('field');
         field.style.gridTemplateColumns = `repeat(${this.cols}, 40px)`;
-        this.appendChild(field);
+        this.wrapper.appendChild(field);
 
         for (let i = 0; i < this.rows; i++) {
             const row = [];
@@ -215,22 +216,21 @@ class Minesweeper extends HTMLElement {
     showGameResult(message) {
         const resultPanel = document.createElement('div');
         resultPanel.classList.add('result-panel');
-    
+
         const messageElement = document.createElement('p');
         messageElement.textContent = message;
         messageElement.classList.add('result-message');
-    
+
         const restartButton = document.createElement('button');
         restartButton.textContent = 'Play again';
         restartButton.addEventListener('click', () => {
-            this.innerHTML = '';
+            this.wrapper.innerHTML = '';
             this.startGame();
         });
-    
+
         resultPanel.appendChild(messageElement);
         resultPanel.appendChild(restartButton);
-    
-        this.appendChild(resultPanel);
+        this.wrapper.appendChild(resultPanel);
     }
 }
 

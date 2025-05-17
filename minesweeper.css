@@ -16,7 +16,7 @@
     display: flex;
     gap: 15px;
     align-items: center;
-    background: linear-gradient(135deg, #4a4a4a, #2e2e2e);
+    background-color: #2e2e2e;
     padding: 20px;
     border-radius: 10px;
     position: relative;
