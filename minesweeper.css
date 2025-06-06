@@ -4,13 +4,13 @@
     text-align: center;
     position: relative;
     display: flex;
-    margin: 20px;
+    padding: 20px;
     width: auto;
     height: auto;
     justify-content: center;
 }
 
-.control-panel {
+.minesweeper .control-panel {
     width: 325px;
     height: 80px;
     display: flex;
@@ -53,40 +53,38 @@
     background-color: #c00c0c;
 }
 
-.field {
+.minesweeper .field {
     display: grid;
     gap: 3px;
     align-items: center;
     justify-content: center;
 }
 
-.field:empty {
+.minesweeper .field:empty {
     display: none;
 }
 
-.result-panel {
+.minesweeper .result-panel {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(135deg, #4a4a4a, #2e2e2e);
+    background-color: #2e2e2e;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    z-index: 20;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
 }
 
-.result-message {
+.minesweeper .result-message {
     font-size: 1.2em;
     color: whitesmoke;
     margin: 0;
 }
 
-.tile {
+.minesweeper .tile {
     background: rgb(244, 244, 244);
     width: 40px;
     height: 40px;
@@ -99,38 +97,38 @@
     box-sizing: border-box;
 }
 
-.tile-clicked {
+.minesweeper .tile-clicked {
     background: darkgrey;
 }
 
-.x1 {
+.minesweeper .x1 {
     color: blue;
 }
 
-.x2 {
+.minesweeper .x2 {
     color: green;
 }
 
-.x3 {
+.minesweeper .x3 {
     color: red;
 }
 
-.x4 {
+.minesweeper .x4 {
     color: navy;
 }
 
-.x5 {
+.minesweeper .x5 {
     color: brown;
 }
 
-.x6 {
+.minesweeper .x6 {
     color: teal;
 }
 
-.x7 {
+.minesweeper .x7 {
     color: black;
 }
 
-.x8 {
+.minesweeper .x8 {
     color: gray;
 }

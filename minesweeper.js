@@ -5,10 +5,11 @@ class Minesweeper extends HTMLElement {
         this.wrapper.classList.add('minesweeper');
         this.appendChild(this.wrapper);
 
+        const css_path = this.getAttribute('css-path') || "minesweeper.css";
         const link = document.createElement('link');
-        if (!document.querySelector('link[href="minesweeper.css"]')) {
+        if (!document.querySelector(`link[href="${css_path}"]`)) {
             link.rel = 'stylesheet';
-            link.href = 'minesweeper.css';
+            link.href = css_path;
             document.head.appendChild(link);
         }
 
@@ -64,7 +65,7 @@ class Minesweeper extends HTMLElement {
             this.rows = parseInt(boardSizeSelect.value);
             this.mines = parseInt(minesCountSelect.value);
             controlPanel.style.display = 'none';
-            this.createGameBoard();
+            this.createField();
             this.placeMines();
         });
 
@@ -74,7 +75,7 @@ class Minesweeper extends HTMLElement {
         this.wrapper.appendChild(controlPanel);
     }
 
-    createGameBoard() {
+    createField() {
         const field = document.createElement('div');
         field.classList.add('field');
         field.style.gridTemplateColumns = `repeat(${this.cols}, 40px)`;
